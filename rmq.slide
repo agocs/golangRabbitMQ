@@ -1,0 +1,101 @@
+Message Queues and Go
+2014-12-08
+
+Chris Agocs
+Software Engineer, Backstop Solutions Group
+chris@agocs.org
+http://www.agocs.org
+@agox
+
+* Message Queue Brokers
+What are they?
+What are they good for?
+
+* Let's Pretend
+We have a small software consulting company.
+We've been contacted by a major financial institution.
+They have a problem.
+
+* RIP Harry
+Harry singlehandedly designed and maintained the 10MLOC of COBOL that handles debit cards.
+He was hit by a truck.
+
+* The Problem
+Replace debit card processing
+
+* Debit Card Processing
+- Accept incoming transactions
+- Check for fraud
+- Send a success / failure message 
+
+* How are we going to do it?
+Microservices
+Message Queue Backbone
+
+* What do we get?
+- Transactions come in via magic
+- Fraud-o-vac
+- Messaging
+
+* Let's whiteboard!
+
+* Message Queue Broker Basics
+- _Connection:_ Long-lived TCP connection between client and broker
+- _Channel:_ Short-lived disposable connection between client and broker
+- _Exchange:_ Routes a message on to zero or more queues
+- _Queue:_ Big topic
+
+* Queues!
+- Consumers connect to them
+- Specifying queue names
+
+* Message Queue Broker Basics cont'd
+- _Routing_ _Key:_ Determines which queue(s) the message is routed to
+- _Exchange_ _Types:_ Big Topic
+
+* Exchange Types
+- _Direct:_ 1:1 Routing Key : Queue mapping
+- _Fanout:_ Ignores routing key, delivers messages to every queue
+- _Topic:_ Each queue subscribes to a topic.
+- _Header:_ Ignores routing key, delivers topic based on AMQP headers
+
+ 
+* Code time!
+import "github.com/streadway/amqp"
+
+* Making a connection
+.play examples/simplePublish.go /START1 OMIT/,/END1 OMIT/
+
+* Making a channel
+.play examples/simplePublish.go /START2 OMIT/,/END2 OMIT/
+
+
+* Declaring a queue
+.play examples/simplePublish.go /START3 OMIT/,/END3 OMIT/
+
+
+* Publishing a message
+.play examples/simplePublish.go /START4 OMIT/,/END4 OMIT/
+
+
+* Consuming a message
+.play examples/simpleConsume.go /START4 OMIT/,/END4 OMIT/
+
+
+* Consuming a message (better)
+.play examples/betterConsume.go /START4 OMIT/,/END4 OMIT/
+
+* Fraud Detection
+.play examples/fraudConsumePublish.go /EXCHANGESTART OMIT/,/EXCHANGEEND OMIT/
+
+* Fraud Detection
+.play examples/fraudConsumePublish.go /START4 OMIT/,/END4 OMIT/
+
+* Subscribing to a Topic
+.play examples/subscribeToSuccess.go /BINDSTART OMIT/,/BINDEND OMIT/
+
+* Subscribing to another Topic
+.play examples/subscribeToFailure.go /BINDSTART OMIT/,/BINDEND OMIT/
+
+* Subscribing to multiple Topics
+.play examples/subscribeToMultiple.go /BINDSTART OMIT/,/BINDEND OMIT/
