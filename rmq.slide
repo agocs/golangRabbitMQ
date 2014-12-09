@@ -64,38 +64,38 @@ Message Queue Backbone
 import "github.com/streadway/amqp"
 
 * Making a connection
-.play examples/simplePublish.go /START1 OMIT/,/END1 OMIT/
+.code examples/simplePublish.go /START1 OMIT/,/END1 OMIT/
 
 * Making a channel
-.play examples/simplePublish.go /START2 OMIT/,/END2 OMIT/
+.code examples/simplePublish.go /START2 OMIT/,/END2 OMIT/
 
 
 * Declaring a queue
-.play examples/simplePublish.go /START3 OMIT/,/END3 OMIT/
+.code examples/simplePublish.go /START3 OMIT/,/END3 OMIT/
 
 
 * Publishing a message
-.play examples/simplePublish.go /START4 OMIT/,/END4 OMIT/
+.code examples/simplePublish.go /START4 OMIT/,/END4 OMIT/
 
 
 * Consuming a message
-.play examples/simpleConsume.go /START4 OMIT/,/END4 OMIT/
+.code examples/simpleConsume.go /START4 OMIT/,/END4 OMIT/
 
 
 * Consuming a message (better)
-.play examples/betterConsume.go /START4 OMIT/,/END4 OMIT/
+.code examples/betterConsume.go /START4 OMIT/,/END4 OMIT/
 
 * Fraud Detection
-.play examples/fraudConsumePublish.go /EXCHANGESTART OMIT/,/EXCHANGEEND OMIT/
+.code examples/fraudConsumePublish.go /EXCHANGESTART OMIT/,/EXCHANGEEND OMIT/
 
 * Fraud Detection
-.play examples/fraudConsumePublish.go /START4 OMIT/,/END4 OMIT/
+.code examples/fraudConsumePublish.go /START4 OMIT/,/END4 OMIT/
 
 * Subscribing to a Topic
-.play examples/subscribeToSuccess.go /BINDSTART OMIT/,/BINDEND OMIT/
+.code examples/subscribeToSuccess.go /BINDSTART OMIT/,/BINDEND OMIT/
 
 * Subscribing to another Topic
-.play examples/subscribeToFailure.go /BINDSTART OMIT/,/BINDEND OMIT/
+.code examples/subscribeToFailure.go /BINDSTART OMIT/,/BINDEND OMIT/
 
 * Subscribing to multiple Topics
-.play examples/subscribeToMultiple.go /BINDSTART OMIT/,/BINDEND OMIT/
+.code examples/subscribeToMultiple.go /BINDSTART OMIT/,/BINDEND OMIT/
